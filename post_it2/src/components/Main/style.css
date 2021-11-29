@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 .all_Main{
     width: 100vw;
     height: 100vh;
     background-image: linear-gradient(90deg, #89f7fe 0%, #66a6ff 100%);
-    display: flex;
 }
 
 .sidebar-closed{
+    font-family: 'Oswald', sans-serif;
     height: 100vh;
     background-color: rgb(255, 255, 255);
     position: fixed;
@@ -13,28 +14,37 @@
     left: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 1vh;
     box-shadow: rgba(100, 100, 111, 0.53) 0px 7px 29px 0px;
     animation: opensidebar 500ms linear ;
-
     width: 5vw;
     transition: 2s;
 }
 .sidebar-opened{
     
     width: 10vw;
+    
 }
 .sidebar_icon{
     width: 100%;
-    background-color: rosybrown;
+    padding:1vh;
+    border: 1px solid grey;
+    display: flex;
+    justify-items: center;
+    
+    transition: 2s; 
+    
+}
+.sidebar_icon_closed{
+    transition: 2s; 
+    transform:rotateY(720deg);
 }
 .circle-animation{
     position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 100px;
-    background-color: rgb(208, 208, 208);
+    background-color: rgb(255, 255, 255);
+    border: 1px black outset;
     top: 50%;
     right: -25px;
     display: flex;
@@ -47,9 +57,10 @@
     min-height: 100vh;
     top: 0;
     display: grid;
-    grid-row: auto auto auto auto;
-    padding: 30px;
-
+    grid-template-columns: auto auto auto auto ;
+    grid-gap: 1vh;  
+    padding: 50px;
+    
 
 }
 
@@ -61,4 +72,40 @@
         width: 5vw;
     }
 
+}
+.Pages{
+    width: 100%;
+    display: flex;
+    
+    flex-direction: row;
+}
+.arrow-left{
+    width: 100px;
+    height: 100px;
+}
+
+.add_post_it{
+    position: fixed;
+    width: 3vw;
+    height: 3vw;
+    background: rgb(255, 255, 255);
+    border-radius: 100px;
+    bottom: 3vh;
+    right: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(100, 100, 111, 0.53);
+
+}
+.add_post_it:hover{
+    animation: jump 500ms infinite;
+    cursor: pointer;
+}
+
+@keyframes jump
+{
+    0% {bottom:3vh}
+    50%{ bottom: 6vh; transform: scale(1.2);}
+    100%{bottom: 3vh;}
 }
