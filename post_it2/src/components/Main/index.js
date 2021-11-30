@@ -16,38 +16,52 @@ export default function Main(props){
         document.getElementById('sidebar').classList.toggle('sidebar-opened')
         document.getElementById('circle').classList.toggle('sidebar')
     }
-    function getPosts(){
+    function OpenAddConteinerPost(){
+        document.getElementById('add_container').style.display = 'grid';
+    }
+    function addPost(){
+        let titulo = window.document.getElementById('titulo_add').value;
+        let corpo = window.document.getElementById('couteudo_add')
+        
+        Posts.push({id:Math.random(),titulo:titulo,corpo:corpo});
+        
         
     }
 
+    function getPosts(){
+      
+    }
     return(
             <div className="all_Main">
-                <div className="add_post_it"><VscAdd/></div>
                 <div className="sidebar-closed" id="sidebar" >
                     <div className="sidebar_icon"><BiHome e width="2em" height="100"/>Home</div>
                     <div className="sidebar_icon"><BiCode/>Code</div>
                     <div className="sidebar_icon"><BiMeteor/>Contatos</div>
                     <div className="circle-animation" id="circle" onClick={HandeClick}><BiRightArrow/></div>
-                </div>
+            </div>
 
             <div className="content" id="content">
-                <div className="arrow"><TiArrowLeftOutline width="100px"/></div>
                 <div className="content-grid" id="content_grid">
-                    <Post_It titulo="oi" conteudo="oi"/>
-                    <Post_It titulo="oi" conteudo="oi"/>
-                    <Post_It titulo="oi" conteudo="oi"/>
                     
-                    <Post_It titulo="oi" conteudo="oi"/>
-                    <Post_It titulo="oi" conteudo="oi"/>
-                    <Post_It titulo="oi" conteudo="oi"/>
-                    <Post_It titulo="oi" conteudo="oi"/>
-                    <Post_It titulo="oi" conteudo="oi"/>
-                    <Post_It titulo="oi" conteudo="oi"/>
-
+                    {Posts.map((object,i)=>{
+                        return (<Post_It titulo={object.titulo} conteudo = {object.corpo}/>);
+                    })}
                 </div>
-                <div className="arrow"> <TiArrowRightOutline/></div>
+
             </div>
             
+            <div className="add_post_it" onClick={OpenAddConteinerPost}>
+                <VscAdd/>
+                
+            </div>
+            <div class="add_new_post_open" id="add_container">
+                        <div id="close" className="close_add_post" onClick={()=>{document.getElementById('add_container').style.display = 'none'}} >X</div>
+                        <section><h3>Titulo</h3></section>
+                        <input type="text" id="titulo_add"></input>
+                        <section><h4>Conteudo</h4></section>
+                        <input type="text" id="conteudo_add"></input>
+                        <button onClick={addPost}><h3>Adicionar</h3></button>
+                </div>
         </div>
     );
 

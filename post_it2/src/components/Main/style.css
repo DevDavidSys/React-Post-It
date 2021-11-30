@@ -16,7 +16,7 @@
     flex-direction: column;
     box-shadow: rgba(100, 100, 111, 0.53) 0px 7px 29px 0px;
     animation: opensidebar 500ms linear ;
-    width: 5vw;
+    width: 10vw;
     transition: 2s;
 }
 .sidebar-opened{
@@ -54,13 +54,17 @@
     justify-content: center;
     align-items: center;
 }
+.circle-animation:hover{
+    transform: translateX(10px);
+}
 .content{
-    margin-left: 5vw;
-    width: 95vw;
+    margin-left: 10vw;
+    width: 90vw;
     min-height: 100vh;
     background-color: rgba(247, 247, 247, 0.653);
-    display: grid;
-    grid-template-columns:5vw auto 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -85,7 +89,7 @@
         width: 0vw;
     }
     to{
-        width: 5vw;
+        width:10vw;
     }
 
 }
@@ -101,16 +105,50 @@
     justify-content: center;
     align-items: center;
     box-shadow: 5px 5px 10px rgba(100, 100, 111, 0.53);
+    transition: 500ms;
 
 }
 .add_post_it:hover{
-    animation: jump 500ms infinite;
+    bottom: 6vh;
     cursor: pointer;
+    transform: scale(1.2);
+    
+    
 }
 
 @keyframes jump
 {
     0% {bottom:3vh}
-    50%{ bottom: 6vh; transform: scale(1.2);}
-    100%{bottom: 3vh;}
+    100%{ bottom: 6vh; transform: scale(1.2);}
+}
+.add_new_post_open{
+    display: none;
+
+    position: fixed;
+    
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-left: 15vw;
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 20vw;
+    border-top-left-radius: 10px;
+    transition: 1s;
+    padding: 10px;
+}
+
+.add_new_post_open input,.add_new_post_open button{
+    margin-bottom: 10px ;
+    border: grey 1px solid;
+    border-radius: 10px;
+    padding: 10PX;
+    font-size: 12PX;
+}
+.close_add_post{
+    position: absolute;
+    top: 0;
+    right: 5px;
 }

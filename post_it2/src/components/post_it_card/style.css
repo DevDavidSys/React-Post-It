@@ -10,6 +10,7 @@
     background-image: url(../../assets/pexels-elijah-o\'donnell-3473569.jpg);
     background-size: cover;
     color: white;
+    margin: 5px;
 }
 
 .post_it_card:hover{
@@ -27,5 +28,15 @@
     font-size: 1rem;
     font-weight: 300;
     border: 1px solid rgb(255, 255, 255);
+
+}
+.add_new_post{
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    display: none;
+    grid-template-columns: auto;
+    position: fixed;
+    transition: 1s;
 
 }
