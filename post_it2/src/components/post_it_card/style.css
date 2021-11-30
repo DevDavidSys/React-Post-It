@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 .post_it_card{
     background-color: rgba(255, 255, 255, 0.5);
     width: 200px;
@@ -5,9 +6,26 @@
     text-align: center;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
     transition: 500ms;
+    padding:10px;
+    background-image: url(../../assets/pexels-elijah-o\'donnell-3473569.jpg);
+    background-size: cover;
+    color: white;
 }
 
 .post_it_card:hover{
     transform:scale(1.1);
     background-color: white;
+}
+.post_it_card h1{
+    font-size: 2em;
+    margin-bottom: 2vh;
+    border: 1px solid rgb(255, 255, 255);
+}
+.post_it_card p{
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    border: 1px solid rgb(255, 255, 255);
+
 }
