@@ -11,6 +11,7 @@
     background-size: cover;
     color: white;
     margin: 5px;
+    position: relative;
 }
 
 .post_it_card:hover{
@@ -39,4 +40,12 @@
     position: fixed;
     transition: 1s;
 
+}
+.close{
+    position: absolute;
+    left: 0px;
+    top: 0;
+    width: 50px;
+    background-color: none;
+    color: none;
 }

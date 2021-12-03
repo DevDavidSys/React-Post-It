@@ -9,17 +9,28 @@ import { TiArrowLeftOutline,TiArrowRightOutline} from "react-icons/ti";
 
 
 export default function Main(props){
-    let Posts = [{id:0,titulo:'a',corpo:'corpo'}]
+    let ObjectPosts = [{id:0,titulo:'a',conteudo:'corpo'}];
+    
+    const [RenderPosts,SetRenderPosts] = useState([<Post_It/>]);
+
+  
+    
     const [Page,SetPage] = useState(0);
     const [Titulo,SetTitulo] = useState('');
     const [Conteudo,SetConteudo] = useState('');
+
+    function DeletePost(){
+        console.log('Deletar');
+    }
     function addPost(){
+        RenderPosts.push(<Post_It/>);
+        SetRenderPosts(RenderPosts.map((objeto)=>{return <Post_It/>}));
 
     }
   
     function HandeClick(){
-        document.getElementById('sidebar').classList.toggle('sidebar-opened')
-        document.getElementById('circle').classList.toggle('sidebar')
+       // document.getElementById('sidebar').classList.toggle('sidebar-opened')
+        //document.getElementById('circle').classList.toggle('sidebar')
     }
     function OpenAddConteinerPost() {
         document.getElementById('add_container').style.display = 'grid';
@@ -28,6 +39,7 @@ export default function Main(props){
 
     
     return(
+        
             <div className="all_Main">
                 <div className="sidebar-closed" id="sidebar" >
                     <div className="sidebar_icon"><BiHome e width="2em" height="100"/>Home</div>
@@ -38,11 +50,7 @@ export default function Main(props){
 
             <div className="content" id="content">
                 <div className="content-grid" id="content_grid">
-                    
-                    {
-                    Posts.map((object,i)=>{
-                        return (<Post_It titulo={object.titulo} conteudo = {object.corpo}/>);
-                    })}
+                    {RenderPosts}
                 </div>
 
             </div>
