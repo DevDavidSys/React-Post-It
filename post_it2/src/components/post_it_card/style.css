@@ -20,7 +20,6 @@
 }
 .post_it_card h1{
     font-size: 2em;
-    margin-bottom: 2vh;
     border: 1px solid rgb(255, 255, 255);
 }
 .post_it_card p{
@@ -43,9 +42,9 @@
 }
 .close{
     position: absolute;
-    left: 0px;
-    top: 0;
+    right: 0;
+    bottom: 0;
     width: 50px;
-    background-color: none;
-    color: none;
+    color: white;
+    cursor: pointer;
 }

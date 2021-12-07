@@ -2,32 +2,38 @@ import React from "react";
 import {BiMeteor,BiCode,BiHome,BiRightArrow,BiArrowFromLeft} from 'react-icons/bi';
 import {HiOutlineChevronRight} from 'react-icons/hi';
 import {VscAdd,VscChevronRight} from 'react-icons/vsc';
-import Post_It from "../post_it_card";
+import Post from "../post_it_card";
 import './style.css';
 import {useState,useEffect} from 'react';
 import { TiArrowLeftOutline,TiArrowRightOutline} from "react-icons/ti";
 
 
 export default function Main(props){
-    let ObjectPosts = [{id:0,titulo:'a',conteudo:'corpo'}];
+    let posts = [<Post/>,<Post/>];
     
-    const [RenderPosts,SetRenderPosts] = useState([<Post_It/>]);
-
-  
-    
-    const [Page,SetPage] = useState(0);
-    const [Titulo,SetTitulo] = useState('');
+    const [RenderPosts,SetRenderPosts] = useState(posts);
+    const [Titulo,SetTitulo] = useState('oi');
     const [Conteudo,SetConteudo] = useState('');
-
+    
+    
     function DeletePost(){
+
         console.log('Deletar');
     }
-    function addPost(){
-        RenderPosts.push(<Post_It/>);
-        SetRenderPosts(RenderPosts.map((objeto)=>{return <Post_It/>}));
-
+    async function addPost(){ 
+        let obj = {id:Math.random(),titulo:Titulo,conteudo:Conteudo};
+        posts.push(obj);
+        console.log(posts);
+    }
+    
+     /*   Renderizar();
     }
   
+    function Renderizar(){
+        let postsQ = posts.flatMap(e=>{return e;})
+        console.log(postsQ)
+        SetRenderPosts();
+    }*/
     function HandeClick(){
        // document.getElementById('sidebar').classList.toggle('sidebar-opened')
         //document.getElementById('circle').classList.toggle('sidebar')
@@ -62,9 +68,9 @@ export default function Main(props){
             <div class="add_new_post_open" id="add_container">
                         <div id="close" className="close_add_post" onClick={()=>{document.getElementById('add_container').style.display = 'none'}} >X</div>
                         <section><h3>Titulo</h3></section>
-                        <input type="text" id="titulo_add" value='oi'  ></input>
+                        <input type="text" id="titulo_add"  onChange={e=>SetTitulo(e.target.value)} value={Titulo}></input>
                         <section><h4>Conteudo</h4></section>
-                        <input type="text" id="conteudo_add"></input>
+                        <input type="text" id="conteudo_add" onChange={e=>SetConteudo(e.target.value)} value={Conteudo} ></input>
                         <button onClick={addPost}><h3>Adicionar</h3></button>
             </div>
         </div>

@@ -3,8 +3,6 @@ import './style.css';
 export default function Post_It(props){
 
     function DeletePost(){
-            
-
     }
 
     function ShowClose(a){
@@ -13,8 +11,8 @@ export default function Post_It(props){
     }
     return(
     
-        <div className="post_it_card" onClick={ShowClose}>
-            <h1 onClick={DeletePost} className="close" id="close">X</h1>
+        <div className="post_it_card" >
+            <h1 onClick={DeletePost} className="close" >X</h1>
             <h1>{props.titulo}</h1>
 
             <p>{props.conteudo}</p>
