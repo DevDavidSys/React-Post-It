@@ -83,6 +83,7 @@ export default function Main(props){
                     <div className="circle-animation" id="circle" onClick={HandeClick}><BiRightArrow/></div>
             </div>
 
+
             <div className="content" id="content">
                 <div className="content-grid" id="content_grid">
                     {RenderPosts}
